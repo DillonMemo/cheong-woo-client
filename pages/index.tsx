@@ -3,16 +3,12 @@ import { gql, useQuery } from "@apollo/client";
 
 /** components */
 import Layout from "../components/Layout";
+import Skeleton from "../components/Skeleton";
+
+/** interfaces */
+import { SayHelloData, SayHelloVars } from "../interfaces";
 
 const [title] = ["청우종합건설"];
-
-interface SayHelloData {
-  sayHello: { text: string; error: string };
-}
-
-interface SayHelloVars {
-  name: string;
-}
 
 const SAY_HELLO_QUERY = gql`
   query GetSayHello($name: String!) {
@@ -23,29 +19,39 @@ const SAY_HELLO_QUERY = gql`
   }
 `;
 
-const sayHelloQueryVars = {
-  name: "Good Dillon!!!",
-};
-
 const Home: React.FC = () => {
   const { loading, data } = useQuery<SayHelloData, SayHelloVars>(
     SAY_HELLO_QUERY,
     {
-      variables: sayHelloQueryVars,
+      variables: { name: "Good Dillon!!!" },
     }
   );
 
   return (
     <Layout title={title}>
-      Hello World!!
-      <Red>Red</Red>
-      <h2>{!loading && data && data.sayHello.text}</h2>
+      <Wrapper>
+        <h2>청우종합건설</h2>
+        <img src="/static/logo/logo_256.png" />
+        <div style={{ marginTop: "1rem" }}>
+          <p>Test from default background style</p>
+          <Skeleton width={400} height={400} />
+        </div>
+        <div style={{ marginTop: "1rem" }}>
+          <p>서버 & 클라이언트 연동 테스트</p>
+          <h2>{!loading && data && data.sayHello.text}</h2>
+        </div>
+      </Wrapper>
     </Layout>
   );
 };
 
-const Red = styled.p`
-  color: red;
+const Wrapper = styled.div`
+  display: flex;
+  min-height: 100vh;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
 export default Home;

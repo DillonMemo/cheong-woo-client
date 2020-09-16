@@ -28,6 +28,11 @@ const Layout: React.FC<Props> = ({
         <meta charSet="utf-8" />
         <title>{title}</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        {/* font */}
+        <link
+          href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;500;700&family=Roboto:wght@100;300;500;700&display=swap"
+          rel="stylesheet"
+        />
       </Head>
       <ContainerWrapper>{children}</ContainerWrapper>
     </div>

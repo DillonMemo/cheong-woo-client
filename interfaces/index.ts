@@ -5,6 +5,15 @@
 // import User from 'path/to/interfaces';
 import { NextRouter } from "next/router";
 
+/** apollo test interface */
+export interface SayHelloData {
+  sayHello: { text: string; error: string };
+}
+
+export interface SayHelloVars {
+  name: string;
+}
+
 /** header components */
 export interface HeaderProps {
   router: NextRouter;
