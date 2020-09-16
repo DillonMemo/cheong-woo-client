@@ -38,7 +38,11 @@ const Home: React.FC = () => {
         </div>
         <div style={{ marginTop: "1rem" }}>
           <p>서버 & 클라이언트 연동 테스트</p>
-          <h2>{!loading && data && data.sayHello.text}</h2>
+          {!loading ? (
+            <h2>{data && data.sayHello.text}</h2>
+          ) : (
+            <Skeleton width="100%" height={64} />
+          )}
         </div>
       </Wrapper>
     </Layout>

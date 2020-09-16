@@ -36,13 +36,13 @@ function createApolloClient() {
 }
 
 export function initializeApollo(initialState: NormalizedCacheObject = {}) {
-  console.log("NodeEnv :", process.env.NodeEnv);
-  console.log("initializeApollo :", {
-    uri:
-      process.env.NodeEnv === "development"
-        ? "http://localhost:4000/graphql"
-        : "https://cheong-woo-server.herokuapp.com/graphql",
-  });
+  // console.log("NodeEnv :", process.env.NodeEnv);
+  // console.log("initializeApollo :", {
+  //   uri:
+  //     process.env.NodeEnv === "development"
+  //       ? "http://localhost:4000/graphql"
+  //       : "https://cheong-woo-server.herokuapp.com/graphql",
+  // });
   // A ?? B => A가 null이면 B 실행 아니면 A 실행
   const _apolloClient = apolloClient ?? createApolloClient();
 
