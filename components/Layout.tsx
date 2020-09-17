@@ -1,7 +1,10 @@
 import React, { ReactNode, useEffect } from "react";
 import Head from "next/head";
-// import { useRouter } from "next/router";
+import { useRouter } from "next/router";
 import styled from "styled-components";
+
+/** Components */
+import Header from "./Header";
 
 type Props = {
   children?: ReactNode;
@@ -16,7 +19,7 @@ const Layout: React.FC<Props> = ({
   //   description = "",
   //   imageUrl = "",
 }) => {
-  //   const router = useRouter();
+  const router = useRouter();
 
   useEffect(() => {
     return;
@@ -34,6 +37,7 @@ const Layout: React.FC<Props> = ({
           rel="stylesheet"
         />
       </Head>
+      <Header router={router} />
       <ContainerWrapper>{children}</ContainerWrapper>
     </div>
   );

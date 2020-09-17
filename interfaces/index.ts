@@ -14,6 +14,14 @@ export interface SayHelloVars {
   name: string;
 }
 
+/** Icon component interfaces */
+export interface IconProps {
+  width?: number | string;
+  height?: number | string;
+  fill?: string;
+  stroke?: string;
+}
+
 /** header components */
 export interface HeaderProps {
   router: NextRouter;

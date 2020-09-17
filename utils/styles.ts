@@ -23,6 +23,10 @@ export const Global = createGlobalStyle`
         user-select: none;
     }
 
+    a {
+      text-decoration: none;
+    }
+
     /** 스크롤바 커스텀 */
     ::-webkit-scrollbar {
         width: 10px;
