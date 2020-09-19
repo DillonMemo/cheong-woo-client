@@ -5,6 +5,7 @@ import styled from "styled-components";
 
 /** Components */
 import Header from "./Header";
+import Footer from "./Footer";
 
 type Props = {
   children?: ReactNode;
@@ -39,6 +40,7 @@ const Layout: React.FC<Props> = ({
       </Head>
       <Header router={router} />
       <ContainerWrapper>{children}</ContainerWrapper>
+      <Footer />
     </div>
   );
 };
