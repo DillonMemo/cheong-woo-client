@@ -18,7 +18,7 @@ const Home: React.FC = () => {
 const Wrapper = styled.div`
   position: relative;
   height: 110vh;
-  background: url("https://images.unsplash.com/photo-1472289065668-ce650ac443d2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3450&q=80")
+  background: url("https://images.unsplash.com/photo-1460317442991-0ec209397118?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80")
     no-repeat center center / cover;
   overflow: hidden;
 

@@ -18,13 +18,17 @@ export const Global = createGlobalStyle`
     }
 
     body {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto','Noto Sans KR', 'Malgun Gothic', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-family: 'Noto Sans KR', 'Segoe UI', 'Roboto', 'Malgun Gothic', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         overscroll-behavior: none;
         user-select: none;
     }
 
     a {
       text-decoration: none;
+    }
+
+    ul {
+      list-style: none;
     }
 
     /** 스크롤바 커스텀 */
