@@ -107,8 +107,8 @@ const Footer: React.FC = () => {
             <ul className="links">
               <li>개인정보 보호정책</li>
               <li>서비스 이용약관</li>
-              <li style={{ fontSize: ".8rem" }}>
-                🧑‍💻 be created by Dillon Jang{" "}
+              <li style={{ fontSize: ".65rem" }}>
+                🧑‍💻 be made by Dillon Jang{" "}
               </li>
             </ul>
           </div>
