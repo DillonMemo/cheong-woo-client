@@ -173,7 +173,7 @@ const HeaderWrapper = styled.header<HeaderWrapperProps>`
   color: #000;
   z-index: 2;
   width: 100vw;
-  padding: 0 10vw;
+  /* padding: 0 10vw; */
   transition: 0.4s ease-out;
 
   ${md} {
@@ -183,7 +183,7 @@ const HeaderWrapper = styled.header<HeaderWrapperProps>`
 
   .container {
     position: relative;
-    max-width: 90rem;
+    max-width: 100rem;
     padding: 0 2rem;
     height: ${headerHeight};
     margin: 0 auto;
@@ -198,7 +198,7 @@ const HeaderWrapper = styled.header<HeaderWrapperProps>`
       flex: 1;
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: end;
 
       ${md} {
         flex: 2;
@@ -298,7 +298,7 @@ const HeaderWrapper = styled.header<HeaderWrapperProps>`
               }
 
               > svg {
-                transform: rotate(-90deg);
+                transform: rotate(0deg);
                 transition: 0.7s ease-out;
               }
 

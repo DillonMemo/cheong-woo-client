@@ -125,6 +125,8 @@ const FooterWrapper = styled.footer`
   color: ${defaultPalette.accent4};
   background-color: ${defaultPalette.background};
   border-top: 1px solid ${defaultPalette.accent1};
+  max-width: 100rem;
+  margin: 0 auto;
 
   .footer-addr {
     flex: 1 0px;
