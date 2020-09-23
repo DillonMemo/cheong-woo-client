@@ -13,15 +13,15 @@ import { defaultPalette } from "../utils/styles";
 type Props = {
   children?: ReactNode;
   title?: string;
-  //   description?: string;
-  //   imageUrl?: string;
+  description?: string;
+  imageUrl?: string;
 };
 
 const Layout: React.FC<Props> = ({
   children,
   title = "청우종합건설",
-  //   description = "",
-  //   imageUrl = "",
+  description = "",
+  imageUrl = "",
 }) => {
   const router = useRouter();
 
@@ -33,6 +33,15 @@ const Layout: React.FC<Props> = ({
     <div style={{ overflowX: "hidden" }}>
       <Head>
         <meta charSet="utf-8" />
+        {/* content="article"은 기사, 뉴스소식, 블로그 게시물에 대한 설정 */}
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={title} />
+        {/* <meta property="og:url" content={`https://cheongwoo.co.kr`} /> */}
+        {imageUrl && <meta property="og:image" content={imageUrl} />}
+        <meta property="og:description" content={description} />
+        <meta property="og:locale" content="ko_KR" />
+        <meta property="og:locale:alternate" content="en_US" />
+        <meta name="description" content={description} />
         <title>{title}</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         {/* font */}

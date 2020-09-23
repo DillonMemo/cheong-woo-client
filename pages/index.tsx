@@ -4,24 +4,16 @@
 import Layout from "../components/Layout";
 import ImageSlider from "../components/ImageSlider";
 
-const [title] = ["청우종합건설"];
-// const images = [
-//   {
-//     original:
-//       "https://images.unsplash.com/photo-1460317442991-0ec209397118?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80",
-//   },
-//   {
-//     original:
-//       "https://images.unsplash.com/photo-1515263487990-61b07816b324?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=4350&q=80",
-//   },
-//   {
-//     original: "https://colorlib.com/preview/theme/hexa/images/img_6.jpg",
-//   },
-// ];
+const attributeLayout = {
+  title: "청우종합건설",
+  description: "That's site is development mode - cheongwoo",
+  imageUrl:
+    "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80",
+};
 
 const Home: React.FC = () => {
   return (
-    <Layout title={title}>
+    <Layout {...attributeLayout}>
       {/* <Wrapper>
         <div className="overlay"></div>
       </Wrapper> */}
@@ -29,22 +21,5 @@ const Home: React.FC = () => {
     </Layout>
   );
 };
-
-// const Wrapper = styled.div`
-//   position: relative;
-//   height: 100vh;
-//   background: url("https://images.unsplash.com/photo-1460317442991-0ec209397118?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80")
-//     no-repeat center center / cover;
-//   overflow: hidden;
-
-//   .overlay {
-//     position: absolute;
-//     width: 100%;
-//     height: 100%;
-//     top: 0;
-//     left: 0;
-//     background-color: rgba(0, 0, 0, 0.2);
-//   }
-// `;
 
 export default Home;
