@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect } from "react";
 import styled from "styled-components";
 
 /** utils */
@@ -6,8 +6,10 @@ import { ArrowLeft, ArrowRight } from "../utils/icons";
 import { md } from "../utils/styles";
 
 const ImageSlider: React.FC = () => {
-  const [autoSlide, setAutoSlide] = useState<boolean>(true);
-  const [intervalTime, setIntervalTime] = useState<number>(5000);
+  const autoSlide = true;
+  const intervalTime = 5000;
+  //   const [autoSlide, setAutoSlide] = useState<boolean>(true);
+  //   const [intervalTime, setIntervalTime] = useState<number>(5000);
   let slideInterval: any = null;
 
   useEffect(() => {
