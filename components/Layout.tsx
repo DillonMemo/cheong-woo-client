@@ -7,6 +7,9 @@ import styled from "styled-components";
 import Header from "./Header";
 import Footer from "./Footer";
 
+/** styles */
+import { defaultPalette } from "../utils/styles";
+
 type Props = {
   children?: ReactNode;
   title?: string;
@@ -45,6 +48,8 @@ const Layout: React.FC<Props> = ({
   );
 };
 
-const ContainerWrapper = styled.div``;
+const ContainerWrapper = styled.div`
+  border-bottom: 1px solid ${defaultPalette.accent1};
+`;
 
 export default Layout;

@@ -20,6 +20,7 @@ export interface IconProps {
   height?: number | string;
   fill?: string;
   stroke?: string;
+  strokeWidth?: number;
 }
 
 /** header components */

@@ -124,7 +124,6 @@ const FooterWrapper = styled.footer`
   padding: 2rem 2rem 1.25rem 2rem;
   color: ${defaultPalette.accent4};
   background-color: ${defaultPalette.background};
-  border-top: 1px solid ${defaultPalette.accent1};
   max-width: 100rem;
   margin: 0 auto;
 

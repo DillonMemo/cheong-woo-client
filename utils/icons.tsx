@@ -21,6 +21,29 @@ export const ArrowDown: React.FC<IconProps> = ({
     </g>
   </svg>
 );
+export const ArrowLeft: React.FC<IconProps> = ({
+  width = "1rem",
+  height = "1rem",
+  fill = "none",
+  stroke = "#626262",
+  strokeWidth = 2,
+}) => (
+  <svg
+    width={width}
+    height={height}
+    preserveAspectRatio="xMidYMid meet"
+    viewBox="0 0 24 24">
+    <g
+      fill={fill}
+      stroke={stroke}
+      strokeWidth={strokeWidth}
+      strokeLinecap="round"
+      strokeLinejoin="round">
+      <path d="M19 12H5" />
+      <path d="M12 19l-7-7l7-7" />
+    </g>
+  </svg>
+);
 export const ArrowRight: React.FC<IconProps> = ({
   width = "1rem",
   height = "1rem",
