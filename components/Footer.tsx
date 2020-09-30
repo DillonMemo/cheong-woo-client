@@ -41,27 +41,27 @@ const Footer: React.FC = () => {
             <h2 className="nav-title">About</h2>
             <ul className="nav-ul nav-ul-extra">
               <li>
-                <Link href="#">
+                <Link href="/about#information">
                   <a>기업정보</a>
                 </Link>
               </li>
               <li>
-                <Link href="#">
+                <Link href="/about#greetings">
                   <a>CEO 인사말</a>
                 </Link>
               </li>
               <li>
-                <Link href="#">
+                <Link href="/about#history">
                   <a>연혁</a>
                 </Link>
               </li>
               <li>
-                <Link href="#">
+                <Link href="/about#address">
                   <a>회사위치</a>
                 </Link>
               </li>
               <li>
-                <Link href="#">
+                <Link href="/about#partners">
                   <a>협력사 현황</a>
                 </Link>
               </li>

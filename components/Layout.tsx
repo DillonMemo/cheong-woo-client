@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect } from "react";
+import React, { ReactNode, useCallback, useEffect, useRef } from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import styled from "styled-components";
@@ -8,7 +8,8 @@ import Header from "./Header";
 import Footer from "./Footer";
 
 /** styles */
-import { defaultPalette } from "../utils/styles";
+import { brandColor, defaultPalette, md } from "../utils/styles";
+import { ArrowUp } from "../utils/icons";
 
 type Props = {
   children?: ReactNode;
@@ -24,9 +25,32 @@ const Layout: React.FC<Props> = ({
   imageUrl = "",
 }) => {
   const router = useRouter();
+  const goTop = useRef<HTMLAnchorElement>(null);
+
+  /**
+   * @description show back to top button
+   */
+  const handler = useCallback(() => {
+    if (!goTop.current) return;
+    const scrollPos = window.scrollY;
+
+    if (scrollPos > 10) {
+      goTop.current.classList.add("show");
+    } else {
+      goTop.current.classList.remove("show");
+    }
+  }, []);
+
+  /**
+   * @description scroll is go to top
+   */
+  const handleScrollToTop = useCallback((): void => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
 
   useEffect(() => {
-    return;
+    window.addEventListener("scroll", handler);
+    return () => window.removeEventListener("scroll", handler);
   }, []);
 
   return (
@@ -52,6 +76,10 @@ const Layout: React.FC<Props> = ({
       </Head>
       <Header router={router} />
       <ContainerWrapper>{children}</ContainerWrapper>
+      {/* back to top button */}
+      <TopButton ref={goTop} onClick={handleScrollToTop}>
+        <ArrowUp stroke="white" />
+      </TopButton>
       <Footer />
     </div>
   );
@@ -59,6 +87,66 @@ const Layout: React.FC<Props> = ({
 
 const ContainerWrapper = styled.div`
   border-bottom: 1px solid ${defaultPalette.accent1};
+
+  .title-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding: 0 10vw;
+    color: #000;
+    position: relative;
+
+    h1 {
+      font-size: 3.5rem;
+      margin: 0;
+      color: ${defaultPalette.foreground};
+
+      ${md} {
+        font-size: 2rem;
+      }
+    }
+    p {
+      font-size: 1rem;
+      margin: 0;
+      color: ${defaultPalette.foreground};
+
+      ${md} {
+        font-size: 0.7rem;
+      }
+    }
+  }
+`;
+
+const TopButton = styled.a`
+  display: inline-block;
+  background-color: ${brandColor.normal};
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  border-radius: 4px;
+  position: fixed;
+  bottom: 3rem;
+  right: 3rem;
+  transition: background-color 0.3s, opacity 0.5s, visibility 0.5s;
+  opacity: 0;
+  visibility: hidden;
+  cursor: pointer;
+  z-index: 9;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  &.show {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &:hover {
+    background-color: ${brandColor.light};
+  }
 `;
 
 export default Layout;

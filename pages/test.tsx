@@ -4,6 +4,7 @@ import { gql, useQuery } from "@apollo/client";
 /** components */
 import Layout from "../components/Layout";
 import Skeleton from "../components/Skeleton";
+import LoaderSpinner from "../components/LoaderSpinner";
 
 /** interfaces */
 import { SayHelloData, SayHelloVars } from "../interfaces";
@@ -44,6 +45,7 @@ const Test: React.FC = () => {
             <Skeleton width="100%" height={64} />
           )}
         </div>
+        <LoaderSpinner />
       </Wrapper>
     </Layout>
   );

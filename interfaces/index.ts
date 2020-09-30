@@ -28,7 +28,18 @@ export interface HeaderProps {
   router: NextRouter;
 }
 
+/** loader spinner component */
+export interface LoaderSpinnerProps {
+  color?: string;
+  subColor?: string;
+}
+
 /** styled components interfaces */
 export interface HeaderWrapperProps {
   router: NextRouter;
+}
+
+export interface SpinnerProps {
+  color: string;
+  subColor: string;
 }

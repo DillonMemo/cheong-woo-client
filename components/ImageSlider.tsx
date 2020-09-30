@@ -25,9 +25,14 @@ const ImageSlider: React.FC = () => {
     const current = document.querySelector(".current");
     const slides = document.querySelectorAll(".slide");
 
-    if (!current) return;
+    const active = document.querySelector(".active");
+    const dots = document.querySelectorAll(".dot");
+
+    if (!current || !active) return;
     // Remove current class
     current.classList.remove("current");
+    // Remove active class
+    active.classList.remove("active");
     // Check for next slide
     if (current.nextElementSibling) {
       // Add current to next sibling
@@ -37,15 +42,32 @@ const ImageSlider: React.FC = () => {
       slides[0].classList.add("current");
     }
 
-    setTimeout(() => current.classList.remove("current"));
+    // Check for next dot
+    if (active.nextElementSibling) {
+      // Add active to next sibling
+      active.nextElementSibling.classList.add("active");
+    } else {
+      // Add active to start
+      dots[0].classList.add("active");
+    }
+
+    setTimeout(() => {
+      current.classList.remove("current");
+      active.classList.remove("active");
+    });
   };
 
   const prevSlide = (): void => {
     const current = document.querySelector(".current");
     const slides = document.querySelectorAll(".slide");
-    if (!current) return;
+
+    const active = document.querySelector(".active");
+    const dots = document.querySelectorAll(".dot");
+    if (!current || !active) return;
     // Remove current class
     current.classList.remove("current");
+    // Remove active class
+    active.classList.remove("active");
     // Check for prev slide
     if (current.previousElementSibling) {
       // Add current to prev sibling
@@ -55,13 +77,24 @@ const ImageSlider: React.FC = () => {
       slides[slides.length - 1].classList.add("current");
     }
 
-    setTimeout(() => current.classList.remove("current"));
+    // Check for next dot
+    if (active.previousElementSibling) {
+      // Add active to next sibling
+      active.previousElementSibling.classList.add("active");
+    } else {
+      // Add active to start
+      dots[dots.length - 1].classList.add("active");
+    }
+
+    setTimeout(() => {
+      current.classList.remove("current");
+      active.classList.remove("active");
+    });
   };
 
   const handleNextSlide = useCallback((): void => {
     nextSlide();
 
-    debugger;
     if (!slideInterval) return;
     if (autoSlide) {
       clearInterval(slideInterval);
@@ -78,6 +111,36 @@ const ImageSlider: React.FC = () => {
       slideInterval = setInterval(nextSlide, intervalTime);
     }
   }, []);
+
+  const handleDotClick = useCallback(
+    ({ target }: React.MouseEvent<HTMLDivElement>): void => {
+      const current = document.querySelector(".current");
+      const slides = document.querySelectorAll(".slide");
+
+      const active = document.querySelector(".active");
+      const dots = document.querySelectorAll(".dot");
+
+      const index = +(target as any).dataset.index;
+
+      if (!current || !active) return;
+
+      if (!current || !active) return;
+      // Remove current class
+      current.classList.remove("current");
+      // Remove active class
+      active.classList.remove("active");
+
+      slides[index - 1].classList.add("current");
+      dots[index - 1].classList.add("active");
+
+      if (!slideInterval) return;
+      if (autoSlide) {
+        clearInterval(slideInterval);
+        slideInterval = setInterval(nextSlide, intervalTime);
+      }
+    },
+    []
+  );
 
   return (
     <>
@@ -121,6 +184,14 @@ const ImageSlider: React.FC = () => {
           <ArrowRight />
         </button>
       </SlideButtonWrapper>
+      <SlideDotWrapper>
+        <div
+          className="dot active"
+          data-index={1}
+          onClick={handleDotClick}></div>
+        <div className="dot" data-index={2} onClick={handleDotClick}></div>
+        <div className="dot" data-index={3} onClick={handleDotClick}></div>
+      </SlideDotWrapper>
     </>
   );
 };
@@ -142,7 +213,7 @@ const Wrapper = styled.div`
 
     .content {
       position: absolute;
-      bottom: 200px;
+      bottom: 150px;
       left: -600px;
       opacity: 0;
       width: 37.5rem;
@@ -154,10 +225,21 @@ const Wrapper = styled.div`
         bottom: -300px;
         left: 0;
         width: 100%;
+
+        padding-bottom: 3.5rem;
       }
 
       h1 {
         margin-bottom: 0.625rem;
+        ${md} {
+          font-size: 1.5rem;
+        }
+      }
+
+      p {
+        ${md} {
+          font-size: 0.8rem;
+        }
       }
     }
 
@@ -206,6 +288,8 @@ const SlideButtonWrapper = styled.div`
     }
 
     svg {
+      position: relative;
+      top: 1px;
       g {
         stroke: #fff;
       }
@@ -236,6 +320,53 @@ const SlideButtonWrapper = styled.div`
         g {
           stroke: #333;
         }
+      }
+    }
+  }
+`;
+
+const SlideDotWrapper = styled.div`
+  div {
+    width: 1rem;
+    height: 1rem;
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    cursor: pointer;
+
+    ${md} {
+      border-color: #000;
+      bottom: 1rem;
+    }
+
+    &:nth-of-type(1) {
+      left: 45%;
+      ${md} {
+        left: 40%;
+      }
+    }
+
+    &:nth-of-type(2) {
+      left: 47.5%;
+      ${md} {
+        left: 50%;
+      }
+    }
+
+    &:nth-of-type(3) {
+      left: 50%;
+      ${md} {
+        left: 60%;
+      }
+    }
+
+    &.active {
+      background-color: #fff;
+
+      ${md} {
+        background-color: #000;
       }
     }
   }

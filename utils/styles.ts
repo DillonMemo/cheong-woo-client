@@ -19,7 +19,7 @@ export const Global = createGlobalStyle`
 
     body {
         font-family: 'Noto Sans KR', 'Segoe UI', 'Roboto', 'Malgun Gothic', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        overscroll-behavior: none;
+        overscroll-behavior: auto;
         user-select: none;
     }
 

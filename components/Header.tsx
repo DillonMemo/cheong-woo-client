@@ -35,7 +35,7 @@ const Header: React.FC<HeaderProps> = ({ router }) => {
         <div className="container">
           <input type="checkbox" name="" id="check" />
           <div className="logo-container">
-            <Link href="#">
+            <Link href="/">
               <a>
                 <div className="logo">
                   <img
@@ -53,12 +53,12 @@ const Header: React.FC<HeaderProps> = ({ router }) => {
             <div className="nav-links">
               <ul>
                 <li className="nav-link">
-                  <Link href="#">
+                  <Link href="/">
                     <a>Home</a>
                   </Link>
                 </li>
                 <li className="nav-link">
-                  <Link href="#">
+                  <Link href="/about">
                     <a>
                       About
                       <ArrowDown stroke="black" />
@@ -67,27 +67,27 @@ const Header: React.FC<HeaderProps> = ({ router }) => {
                   <div className="dropdown">
                     <ul>
                       <li className="dropdown-link">
-                        <Link href="#">
+                        <Link href="/about#information">
                           <a>기업정보</a>
                         </Link>
                       </li>
                       <li className="dropdown-link">
-                        <Link href="#">
+                        <Link href="/about#greetings">
                           <a>CEO 인사말</a>
                         </Link>
                       </li>
                       <li className="dropdown-link">
-                        <Link href="#">
+                        <Link href="/about#history">
                           <a>연혁</a>
                         </Link>
                       </li>
                       <li className="dropdown-link">
-                        <Link href="#">
+                        <Link href="/about#address">
                           <a>회사위치</a>
                         </Link>
                       </li>
                       <li className="dropdown-link">
-                        <Link href="#">
+                        <Link href="/about#partners">
                           <a>협력사 현황</a>
                         </Link>
                       </li>
@@ -175,7 +175,7 @@ const HeaderWrapper = styled.header<HeaderWrapperProps>`
   width: 100vw;
   /* padding: 0 10vw; */
   transition: 0.4s ease-out;
-
+  border-top: 5px solid #0172b2;
   ${md} {
     background-color: #fff;
     padding: 0 1rem;
