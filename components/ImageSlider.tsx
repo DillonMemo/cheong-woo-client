@@ -170,6 +170,7 @@ const ImageSlider: React.FC = () => {
         <div className="slide">
           <div className="content">
             <h1>Title Three</h1>
+            <small>주택</small>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi est,
               necessitatibus omnis unde dolore tempora similique! Ipsam eum quo
