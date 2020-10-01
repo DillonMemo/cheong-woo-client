@@ -4,6 +4,7 @@ import { ThemeProvider } from "styled-components";
 import { useApollo } from "../lib/apolloClient";
 
 import palette, { Global } from "../utils/styles";
+import "aos/dist/aos.css";
 
 export default function App({ Component, pageProps }: AppProps) {
   const apolloClient = useApollo(pageProps.initialApolloState);

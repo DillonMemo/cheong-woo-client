@@ -26,7 +26,60 @@ const Footer: React.FC = () => {
             </div>
           </address>
         </div>
-        <ul className="footer-nav">
+
+        <div className="footer-content">
+          <ul className="footer-nav">
+            <li className="nav-item">
+              <Link href="/">
+                <a>
+                  <h2 className="nav-title">Home</h2>
+                </a>
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link href="/about">
+                <a>
+                  <h2 className="nav-title">About</h2>
+                </a>
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link href="#">
+                <a>
+                  <h2 className="nav-title">Business</h2>
+                </a>
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link href="#">
+                <a>
+                  <h2 className="nav-title">Projects</h2>
+                </a>
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link href="#">
+                <a>
+                  <h2 className="nav-title">Career</h2>
+                </a>
+              </Link>
+            </li>
+          </ul>
+          <div className="legal">
+            <p>&copy; 2020 Cheong woo Inc. All rights reserved.</p>
+            <div className="legal-links">
+              <ul className="links">
+                <li>개인정보 보호정책</li>
+                <li>서비스 이용약관</li>
+                <li style={{ fontSize: ".65rem" }}>
+                  🧑‍💻 be made by Dillon Jang{" "}
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        {/* <ul className="footer-nav">
           <li className="nav-item">
             <h2 className="nav-title">Home</h2>
             <ul className="nav-ul">
@@ -101,9 +154,6 @@ const Footer: React.FC = () => {
         <div className="legal">
           <p>&copy; 2020 Cheong woo Inc. All rights reserved.</p>
           <div className="legal-links">
-            {/* <span>
-              Made with <span className="heart">💕</span> remotely from anywhere
-            </span> */}
             <ul className="links">
               <li>개인정보 보호정책</li>
               <li>서비스 이용약관</li>
@@ -112,7 +162,7 @@ const Footer: React.FC = () => {
               </li>
             </ul>
           </div>
-        </div>
+        </div> */}
       </FooterWrapper>
     </>
   );
@@ -121,7 +171,8 @@ const Footer: React.FC = () => {
 const FooterWrapper = styled.footer`
   display: flex;
   flex-flow: row wrap;
-  padding: 2rem 2rem 1.25rem 2rem;
+  /* padding: 2rem 2rem 1.25rem 2rem; */
+  padding: 1rem 1rem 0.75rem 1rem;
   color: ${defaultPalette.accent4};
   background-color: ${defaultPalette.background};
   max-width: 100rem;
@@ -129,8 +180,8 @@ const FooterWrapper = styled.footer`
 
   .footer-addr {
     flex: 1 0px;
-    margin-right: 1.25rem;
-    margin-bottom: 2rem;
+    /* margin-right: 1.25rem;
+    margin-bottom: 2rem; */
 
     ${md} {
       flex: 1 100%;
@@ -179,8 +230,13 @@ const FooterWrapper = styled.footer`
   }
   .nav-title {
     font-weight: 400;
-    font-size: 1.1rem;
-    color: #000;
+    font-size: 1.25rem;
+    /* color: #000; */
+    color: ${defaultPalette.accent4};
+    transition: color 0.4s ease;
+    &:hover {
+      color: ${defaultPalette.accent8} !important;
+    }
   }
 
   ul {
@@ -216,6 +272,12 @@ const FooterWrapper = styled.footer`
         }
       }
     }
+  }
+
+  .footer-content {
+    flex: 2 0px;
+    display: flex;
+    flex-flow: column wrap;
   }
 
   .footer-nav {
@@ -258,13 +320,19 @@ const FooterWrapper = styled.footer`
     align-items: center;
     flex-wrap: wrap;
     color: ${defaultPalette.accent4};
-    flex: 1 100%;
+    /* flex: 1 100%; */
+    /* footer를 얇게 수정 */
+    flex: 1;
+    flex-direction: column;
+    justify-content: flex-end;
 
     ${md} {
       margin-top: 0.5rem;
     }
 
     p {
+      width: 100%;
+      text-align: right;
       margin: 0;
     }
 

@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
-import AOS from "aos";
 
 /** components */
 import Layout from "../../components/Layout";
+import InformationSection from "./InformationSection";
 
 /** styles */
 import { Image } from "../../utils/icons";
@@ -15,10 +15,6 @@ const attributeLayout = {
 };
 
 const About: React.FC = () => {
-  useEffect(() => {
-    AOS.init({ duration: 1200 });
-  }, []);
-
   return (
     <Layout {...attributeLayout}>
       <FirstWrapper className="title-content">
@@ -26,13 +22,13 @@ const About: React.FC = () => {
           <p>Home &gt; About</p>
           <span>About</span>
         </Title>
-        <div style={{ position: "absolute", top: "50%", left: "50%" }}>
+        <div style={{ position: "absolute", top: "50%", left: "47.5%" }}>
           <Image width="4rem" height="4rem" stroke="black" strokeWidth={1} />
         </div>
       </FirstWrapper>
-      <section style={{ height: "50vh" }}>
-        <h1> Hello Section</h1>
-      </section>
+      <div className="container">
+        <InformationSection />
+      </div>
     </Layout>
   );
 };

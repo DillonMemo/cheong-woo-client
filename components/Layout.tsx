@@ -8,7 +8,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 
 /** styles */
-import { brandColor, defaultPalette, md } from "../utils/styles";
+import { brandColor, defaultPalette, lg, md, sm, xxs } from "../utils/styles";
 import { ArrowUp } from "../utils/icons";
 
 type Props = {
@@ -115,6 +115,83 @@ const ContainerWrapper = styled.div`
         font-size: 0.7rem;
       }
     }
+  }
+
+  .container {
+    margin: 2rem auto;
+
+    p {
+      margin: 1rem auto;
+      text-align: center;
+    }
+
+    > section {
+      display: flex;
+      padding: 2rem;
+
+      .row,
+      &.row {
+        flex-direction: row;
+
+        > div {
+          flex: 1;
+        }
+
+        ${md} {
+          flex-direction: column;
+        }
+      }
+
+      .column,
+      &.column {
+        flex-direction: column;
+      }
+    }
+  }
+`;
+
+export const MessageTitle = styled.h1`
+  font-size: 2.5rem;
+  font-weight: 600;
+
+  ${lg} {
+    font-size: 2rem;
+  }
+
+  ${sm} {
+    font-size: 1.7rem;
+    font-weight: 500;
+  }
+
+  ${xxs} {
+    font-size: 1.3rem;
+  }
+`;
+
+export const MessageSubTitle = styled.p`
+  font-size: 1.5rem;
+
+  ${lg} {
+    font-size: 1.3rem;
+  }
+
+  ${sm} {
+    font-size: 1.2rem;
+  }
+
+  ${xxs} {
+    font-size: 1rem;
+  }
+`;
+
+export const MessageContent = styled.p`
+  font-size: 1rem;
+  margin: 0;
+  padding: 0 10rem;
+
+  ${sm} {
+    font-size: 0.8rem;
+    padding: 0;
   }
 `;
 

@@ -148,6 +148,7 @@ const ImageSlider: React.FC = () => {
         <div className="slide current">
           <div className="content">
             <h1>Title One</h1>
+            <small>건축</small>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae aut
               quam, autem quis corrupti et laboriosam voluptatibus! Ducimus,
@@ -158,6 +159,7 @@ const ImageSlider: React.FC = () => {
         <div className="slide">
           <div className="content">
             <h1>Title Two</h1>
+            <small>토목</small>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis eos
               distinctio illo, ducimus a maxime eligendi odit ipsa quo
@@ -258,16 +260,13 @@ const Wrapper = styled.div`
     }
 
     &:nth-of-type(1) {
-      background: url("https://images.unsplash.com/photo-1460317442991-0ec209397118?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80")
-        no-repeat center center/cover;
+      background: url("../static/main_1.jpeg") no-repeat center center/cover;
     }
     &:nth-of-type(2) {
-      background: url("https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80")
-        no-repeat center center/cover;
+      background: url("../static/main_2.jpeg") no-repeat center center/cover;
     }
     &:nth-of-type(3) {
-      background: url("https://images.unsplash.com/photo-1525351549016-1ddd272c8315?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80")
-        no-repeat center center/cover;
+      background: url("../static/main_3.jpeg") no-repeat center center/cover;
     }
   }
 `;
@@ -284,6 +283,11 @@ const SlideButtonWrapper = styled.div`
     transition: all 0.4s ease-out;
 
     ${md} {
+      border-color: #000;
+      color: #000;
+    }
+
+    ${md} {
       padding: 0.5rem 0.75rem;
     }
 
@@ -292,6 +296,10 @@ const SlideButtonWrapper = styled.div`
       top: 1px;
       g {
         stroke: #fff;
+
+        ${md} {
+          stroke: #000;
+        }
       }
     }
 
