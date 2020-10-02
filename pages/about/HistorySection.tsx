@@ -179,7 +179,11 @@ const HistorySection: React.FC = () => {
 };
 
 const ContentWrapper = styled.section`
-  padding: 2rem 2rem 8rem !important;
+  padding: 2rem 2rem 15rem !important;
+
+  ${md} {
+    padding-bottom: 12rem !important;
+  }
   .wrapper {
     width: 100%;
     max-width: 1140px;
