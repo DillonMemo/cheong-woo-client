@@ -118,7 +118,7 @@ const ContainerWrapper = styled.div`
   }
 
   .container {
-    margin: 2rem auto;
+    margin: 0 auto;
 
     p {
       margin: 1rem auto;
@@ -129,16 +129,25 @@ const ContainerWrapper = styled.div`
       display: flex;
       padding: 2rem;
 
+      .wrapper {
+        display: flex;
+      }
+
       .row,
       &.row {
         flex-direction: row;
 
-        > div {
-          flex: 1;
-        }
-
         ${md} {
           flex-direction: column;
+        }
+      }
+
+      .mobile-reverse-row,
+      &.mobile-reverse-row {
+        flex-direction: row;
+
+        ${md} {
+          flex-direction: column-reverse;
         }
       }
 
@@ -152,8 +161,8 @@ const ContainerWrapper = styled.div`
 
 export const MessageTitle = styled.h1`
   font-size: 2.5rem;
-  font-weight: 600;
-
+  font-weight: 500;
+  text-align: center;
   ${lg} {
     font-size: 2rem;
   }
@@ -186,8 +195,9 @@ export const MessageSubTitle = styled.p`
 
 export const MessageContent = styled.p`
   font-size: 1rem;
+  font-weight: lighter;
   margin: 0;
-  padding: 0 10rem;
+  padding: 0 7rem;
 
   ${sm} {
     font-size: 0.8rem;

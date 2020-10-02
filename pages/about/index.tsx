@@ -4,6 +4,9 @@ import styled from "styled-components";
 /** components */
 import Layout from "../../components/Layout";
 import InformationSection from "./InformationSection";
+import GreetingsSection from "./GreetingsSection";
+import HistorySection from "./HistorySection";
+import AddressSection from "./AddressSection";
 
 /** styles */
 import { Image } from "../../utils/icons";
@@ -22,12 +25,15 @@ const About: React.FC = () => {
           <p>Home &gt; About</p>
           <span>About</span>
         </Title>
-        <div style={{ position: "absolute", top: "50%", left: "47.5%" }}>
+        <div style={{ position: "absolute", top: "47.5%", left: "47.5%" }}>
           <Image width="4rem" height="4rem" stroke="black" strokeWidth={1} />
         </div>
       </FirstWrapper>
       <div className="container">
         <InformationSection />
+        <GreetingsSection />
+        <HistorySection />
+        <AddressSection />
       </div>
     </Layout>
   );

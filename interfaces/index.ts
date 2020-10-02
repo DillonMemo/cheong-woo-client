@@ -43,3 +43,8 @@ export interface SpinnerProps {
   color: string;
   subColor: string;
 }
+
+export type historyListType = {
+  year: string;
+  contents: string[];
+}[];
