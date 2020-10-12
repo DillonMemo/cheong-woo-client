@@ -7,7 +7,7 @@ import { md } from "../utils/styles";
 
 const ImageSlider: React.FC = () => {
   const autoSlide = true;
-  const intervalTime = 5000;
+  const intervalTime = 4000;
   //   const [autoSlide, setAutoSlide] = useState<boolean>(true);
   //   const [intervalTime, setIntervalTime] = useState<number>(5000);
   let slideInterval: any = null;
@@ -325,9 +325,17 @@ const SlideButtonWrapper = styled.div`
     &:hover {
       background-color: #fff;
 
+      ${md} {
+        background-color: #000;
+      }
+
       svg {
         g {
           stroke: #333;
+
+          ${md} {
+            stroke: #fff;
+          }
         }
       }
     }

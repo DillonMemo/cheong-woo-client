@@ -7,6 +7,7 @@ import InformationSection from "./InformationSection";
 import GreetingsSection from "./GreetingsSection";
 import HistorySection from "./HistorySection";
 import AddressSection from "./AddressSection";
+import PartnersSection from "./PartnersSection";
 
 /** styles */
 import { Image } from "../../utils/icons";
@@ -34,6 +35,7 @@ const About: React.FC = () => {
         <GreetingsSection />
         <HistorySection />
         <AddressSection />
+        <PartnersSection />
       </div>
     </Layout>
   );

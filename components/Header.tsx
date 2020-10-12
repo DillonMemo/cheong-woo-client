@@ -129,15 +129,15 @@ const Header: React.FC<HeaderProps> = ({ router }) => {
                   </div>
                 </li>
                 <li className="nav-link">
-                  <Link href="#">
+                  <Link href="/business">
                     <a>Business</a>
                   </Link>
                 </li>
-                <li className="nav-link">
+                {/* <li className="nav-link">
                   <Link href="#">
                     <a>Projects</a>
                   </Link>
-                </li>
+                </li> */}
                 <li className="nav-link">
                   <Link href="#">
                     <a>Career</a>

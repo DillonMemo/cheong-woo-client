@@ -12,7 +12,7 @@ const AddressSection: React.FC = () => {
       <div
         className="wrapper column"
         data-aos="fade-down"
-        data-aos-duration="1700">
+        data-aos-duration="2000">
         <div className="title">
           <MessageTitle>회사 위치</MessageTitle>
         </div>

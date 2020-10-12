@@ -182,7 +182,7 @@ const ContentWrapper = styled.section`
   padding: 2rem 2rem 15rem !important;
 
   ${md} {
-    padding-bottom: 12rem !important;
+    padding-bottom: 10rem !important;
   }
   .wrapper {
     width: 100%;

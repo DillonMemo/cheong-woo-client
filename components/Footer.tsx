@@ -44,19 +44,19 @@ const Footer: React.FC = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link href="#">
+              <Link href="/business">
                 <a>
                   <h2 className="nav-title">Business</h2>
                 </a>
               </Link>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <Link href="#">
                 <a>
                   <h2 className="nav-title">Projects</h2>
                 </a>
               </Link>
-            </li>
+            </li> */}
             <li className="nav-item">
               <Link href="#">
                 <a>
@@ -234,6 +234,10 @@ const FooterWrapper = styled.footer`
     /* color: #000; */
     color: ${defaultPalette.accent4};
     transition: color 0.4s ease;
+
+    ${md} {
+      font-size: 1rem;
+    }
     &:hover {
       color: ${defaultPalette.accent8} !important;
     }
@@ -328,6 +332,7 @@ const FooterWrapper = styled.footer`
 
     ${md} {
       margin-top: 0.5rem;
+      font-size: 0.875rem;
     }
 
     p {
@@ -343,6 +348,7 @@ const FooterWrapper = styled.footer`
 
       ${md} {
         margin-left: 0;
+        font-size: 0.65rem;
       }
 
       .links {
