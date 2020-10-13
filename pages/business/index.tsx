@@ -263,10 +263,6 @@ const GridContainer = styled.div`
 `;
 
 const ImgContent = styled.div<{ img_url: string }>`
-  /* -o-object-fit: cover;
-  object-fit: cover;
-  -o-object-position: center;
-  object-position: center; */
   width: 100%;
   height: 100%;
   transition: 0.3s ease;

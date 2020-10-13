@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect } from "react";
 import styled from "styled-components";
+import AOS from "aos";
 
 /** styles */
 import { MessageContent, MessageTitle } from "../../components/Layout";
@@ -128,24 +129,22 @@ const HistorySection: React.FC = () => {
   );
 
   useEffect(() => {
+    AOS.init({ duration: 1200 });
     return recordNavInit();
   }, []);
   return (
     <ContentWrapper id="history">
       <div className="wrapper column">
-        <div className="title" data-aos="fade-up" data-aos-duration="1500">
+        <div className="title" data-aos="fade-up">
           <MessageTitle>청우종합건설의 발자취</MessageTitle>
         </div>
-        <div className="content" data-aos="fade-up" data-aos-duration="1500">
+        <div className="content" data-aos="fade-up">
           <MessageContent>
             청우종합건설이 걸어온 길은 인류의 발전에 끊임없이 노력하며 현재도
             같은 길을 걷고 있습니다.
           </MessageContent>
         </div>
-        <div
-          className="container"
-          data-aos="fade-right"
-          data-aos-duration="2000">
+        <div className="container" data-aos="fade-right">
           <div className="record-nav-bar"></div>
           <div className="record-nav-bar-selected"></div>
           <ul className="record-nav">

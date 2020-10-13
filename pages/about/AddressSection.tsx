@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
+import AOS from "aos";
 
 /** styles */
 import { md } from "../../utils/styles";
@@ -7,12 +8,13 @@ import { md } from "../../utils/styles";
 import { MessageSubTitle, MessageTitle } from "../../components/Layout";
 
 const AddressSection: React.FC = () => {
+  useEffect(() => {
+    AOS.init({ duration: 1200 });
+  }, []);
+
   return (
     <ContentWrapper id="address">
-      <div
-        className="wrapper column"
-        data-aos="fade-down"
-        data-aos-duration="2000">
+      <div className="wrapper column" data-aos="fade-down">
         <div className="title">
           <MessageTitle>회사 위치</MessageTitle>
         </div>

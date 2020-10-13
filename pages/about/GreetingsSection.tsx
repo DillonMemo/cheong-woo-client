@@ -8,7 +8,7 @@ import { lg, md, sm, xl, xxl } from "../../utils/styles";
 
 const GreetingsSection = () => {
   useEffect(() => {
-    AOS.init({ duration: 1500 });
+    AOS.init({ duration: 1200 });
   }, []);
   return (
     <ContentWrapper id="greetings">
