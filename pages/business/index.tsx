@@ -186,7 +186,7 @@ const FilterContainer = styled.div`
         transition: width 0.4s ease;
       }
 
-      &:hover,
+      /* &:hover, */
       &.active {
         color: ${brandColor.normal};
 
