@@ -4,8 +4,9 @@ import styled from "styled-components";
 /** components */
 import Layout from "../../components/Layout";
 
-/** styles */
-import { Image } from "../../utils/icons";
+/** utils */
+import { FilterType, imgs, ImgType } from "../../utils/sample-data";
+import { brandColor, xs } from "../../utils/styles";
 
 const attributeLayout = {
   title: "청우종합건설",
@@ -14,129 +15,267 @@ const attributeLayout = {
 };
 
 const Business: React.FC = () => {
-  const [arr, setArr] = useState<any[]>([]);
-  useEffect(() => {
-    for (let i = 0; i < 30; i++) {
-      const rand = Math.floor(Math.random() * 30);
-      const url = `https://source.unsplash.com/random/960x540/?${rand}`;
+  const [filters, setFilters] = useState<FilterType[]>([
+    { name: "all", status: true },
+    { name: "filter 1", status: false },
+    { name: "filter 2", status: false },
+    { name: "filter 3", status: false },
+    { name: "filter 4", status: false },
+    { name: "filter 5", status: false },
+  ]);
+  const [images, setImages] = useState<ImgType[]>(imgs);
 
-      setArr((prevState) => [...prevState, { img_url: url }]);
-    }
-  }, []);
+  /**
+   * @description filter list click event handler
+   * @param e - event argument
+   */
+  const handleFilterClick = (e: React.MouseEvent<HTMLLIElement>) => {
+    e.preventDefault();
 
-  useEffect(() => {
-    if (arr.length > 0) {
-      console.log(arr.length);
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting === true) {
-            const img = entry.target.querySelector(".img");
-            if (!img) return;
-            entry.target.classList.add("inview");
-          } else {
-            entry.target.classList.remove("inview");
-          }
+    const { index } = e.currentTarget.dataset;
+    if (!index) return;
+
+    // 'All' event
+    if (+index === 0) {
+      const result = filters.map((filter) =>
+        filter.name === "all"
+          ? { ...filter, status: true }
+          : { ...filter, status: false }
+      );
+      setFilters(result);
+      setImages(imgs);
+    } else {
+      const result = [
+        { ...filters[0], status: false },
+        ...filters.slice(1, +index),
+        { ...filters[+index], status: !filters[+index].status },
+        ...filters.slice(+index + 1),
+      ];
+      const newImages: ImgType[] = [];
+
+      if (result.filter((r) => r.status).length > 0) {
+        const filterArr = result.filter((r) => r.status).map((r) => r.name);
+        imgs.filter((img) => {
+          filterArr.map((filter) => filter === img.tag && newImages.push(img));
         });
-      });
 
-      const items = document.querySelectorAll(".grid-item");
-      items.forEach((item) => {
-        observer.observe(item);
-      });
+        setFilters(result);
+        setImages(newImages);
+      } else {
+        const result = filters.map((filter) =>
+          filter.name === "all"
+            ? { ...filter, status: true }
+            : { ...filter, status: false }
+        );
+        setFilters(result);
+        setImages(imgs);
+      }
     }
-  }, [arr]);
+  };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting === true) {
+          const img = entry.target.querySelector(".img");
+          if (!img) return;
+          entry.target.classList.add("inview");
+        } else {
+          entry.target.classList.remove("inview");
+        }
+      });
+    });
+
+    const items = document.querySelectorAll(".grid-item");
+    items.forEach((item) => {
+      observer.observe(item);
+    });
+  }, [images]);
+
   return (
     <Layout {...attributeLayout}>
-      <FirstWrapper className="title-content">
-        <Title>
-          <p>Home &gt; Business</p>
-          <span>Business</span>
-        </Title>
-        <div style={{ position: "absolute", top: "47.5%", left: "47.5%" }}>
-          <Image width="4rem" height="4rem" stroke="black" strokeWidth={1} />
-        </div>
-      </FirstWrapper>
-      <div className="container">
-        <GridContainer>
-          {arr.map((item, index) => (
-            <div key={`item-${index}`} className="grid-item">
-              {/* <img src={item.img_url} /> */}
-              <ImgContent className="img" img_url={item.img_url} />
+      <Wrapper>
+        <FilterContainer>
+          <h1>Business</h1>
+
+          <ul className="filter-list">
+            {filters.map((filter, index) => (
+              <li
+                key={`filter-${index}`}
+                data-index={index}
+                onClick={handleFilterClick}
+                className={`filter ${filter.status ? "active" : ""}`}>
+                {filter.name}
+              </li>
+            ))}
+          </ul>
+        </FilterContainer>
+      </Wrapper>
+      <GridContainer className="grid">
+        {images.map((img, index) => (
+          <div key={`item-${index}`} className="grid-item">
+            <ImgContent className="img" img_url={img.url} />
+            <div className="details">
+              <span>{img.title}</span>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Dolores quia maiores fugiat eaque! Laborum, aliquam quaerat.
+                Similique magni pariatur dolorum!
+              </p>
             </div>
-          ))}
-        </GridContainer>
-      </div>
+          </div>
+        ))}
+      </GridContainer>
     </Layout>
   );
 };
 
-const FirstWrapper = styled.div`
-  /* background-image: url("https://images.unsplash.com/photo-1482148454461-aaedae4b30bb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80"); */
-  height: 60vh;
-  background-color: rgba(112, 112, 112, 1);
-  /* Create the parallax scrolling effect */
-  background-attachment: fixed;
-  background-position: center 90%;
-  background-repeat: no-repeat;
+const Wrapper = styled.div`
+  max-width: 100rem;
+  margin: 10rem auto 0;
+  display: flex;
+  justify-content: center;
 `;
 
-const Title = styled.div`
-  margin: 2rem 0;
+const FilterContainer = styled.div`
+  text-align: center;
 
-  p {
-    font-size: 1rem !important;
+  h1 {
+    margin: 0 0 20px;
+    text-transform: uppercase;
+
+    ${xs} {
+      font-size: 1.2rem;
+    }
   }
 
-  span {
-    font-size: 3.5rem;
+  ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5rem;
+
+    .filter {
+      position: relative;
+      transition: 0.4s ease-out;
+      color: #c8c8c8;
+      padding: 0.5rem 0.8rem;
+      line-height: 2rem;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+
+      ${xs} {
+        font-size: 0.7rem;
+        padding: 0.25rem 0.3rem;
+        line-height: 1rem;
+      }
+
+      &:after {
+        content: "";
+        width: 0;
+        position: absolute;
+        height: 2px;
+        display: block;
+        margin-top: 5px;
+        right: 0;
+        top: 100%;
+        background-color: black;
+        transition: width 0.4s ease;
+      }
+
+      &:hover,
+      &.active {
+        color: ${brandColor.normal};
+
+        &:after {
+          width: 100%;
+          left: 0;
+          background-color: ${brandColor.normal};
+        }
+      }
+    }
   }
 `;
 
 const GridContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  grid-auto-rows: minmax(270px, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+  grid-auto-rows: minmax(470px, 1fr);
   max-width: 100rem;
-  margin: 0 auto;
+  margin: 1rem auto 5rem;
+
+  ${xs} {
+    grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+    grid-auto-rows: minmax(300px, 1fr);
+  }
 
   .grid-row,
   .grid-item {
     display: block;
     overflow: hidden;
-
-    img {
-      -o-object-fit: cover;
-      object-fit: cover;
-      -o-object-position: center;
-      object-position: center;
-      width: 100%;
-      height: 100%;
-    }
   }
 
   .grid-item {
+    position: relative;
     filter: blur(3px);
     transition: 0.6s filter cubic-bezier(0.55, 0.055, 0.675, 0.19) 0.3s,
       0.6s -webkit-transform cubic-bezier(0.55, 0.055, 0.675, 0.19);
 
+    .details {
+      position: absolute;
+      top: 50%;
+      left: 10%;
+      width: 80%;
+      height: 80%;
+      content: "";
+      padding: 5% 8%;
+      display: flex;
+      flex-flow: column wrap;
+      justify-content: space-around;
+      /* transform: translate(-50%, -50%) rotateY(90deg); */
+      transform: translateY(50%);
+      transform-origin: 50%;
+      background: rgba(255, 255, 255, 0.9);
+      opacity: 0;
+      transition: all 0.7s ease-in;
+
+      ${xs} {
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+    }
     &.inview {
       filter: none;
+    }
+
+    &:hover {
+      .details {
+        /* transform: translate(-50%, -50%) rotateY(0deg); */
+        transform: translateY(-50%);
+        opacity: 1;
+      }
     }
   }
 `;
 
 const ImgContent = styled.div<{ img_url: string }>`
-  -o-object-fit: cover;
+  /* -o-object-fit: cover;
   object-fit: cover;
   -o-object-position: center;
-  object-position: center;
+  object-position: center; */
   width: 100%;
   height: 100%;
-  transition: 0.5s ease;
+  transition: 0.3s ease;
 
   cursor: pointer;
   background-image: ${({ img_url }) => `url(${img_url})`};
   background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 
   &:hover,
   &:focus {
