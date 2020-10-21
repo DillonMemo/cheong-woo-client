@@ -50,6 +50,13 @@ const Footer: React.FC = () => {
                 </a>
               </Link>
             </li>
+            <li className="nav-item">
+              <Link href="/corporateidentity">
+                <a>
+                  <h2 className="nav-title">CI</h2>
+                </a>
+              </Link>
+            </li>
             {/* <li className="nav-item">
               <Link href="#">
                 <a>
