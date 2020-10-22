@@ -94,6 +94,7 @@ const ContentWrapper = styled.div`
 
     ${md} {
       padding: 0 1.5rem;
+      margin: 5rem auto;
     }
 
     .title-container {
@@ -136,6 +137,10 @@ const ContentWrapper = styled.div`
 
     .content-container {
       margin: 5rem 0;
+
+      ${md} {
+        margin: 5rem 0 2rem;
+      }
       span {
         margin-left: 1rem;
         font-size: 1.75rem;
@@ -179,11 +184,19 @@ const ImgWrapper = styled.div`
   display: flex;
   justify-content: space-evenly;
 
+  ${md} {
+    flex-direction: column;
+  }
+
   .logo-box {
     width: 30%;
     text-align: center;
     color: ${defaultPalette.accent2};
     letter-spacing: 2px;
+
+    ${md} {
+      width: 100%;
+    }
   }
 
   .logo_vertical {
@@ -206,6 +219,10 @@ const ImgWrapper = styled.div`
     height: 6rem;
     border: 1px solid rgba(0, 0, 0, 0.1);
     margin-top: 1.5rem;
+
+    ${md} {
+      width: 100%;
+    }
 
     &.white {
       background: url("/static/logo/logo_horizontal_328.png") center no-repeat;

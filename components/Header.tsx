@@ -60,64 +60,49 @@ const Header: React.FC<HeaderProps> = ({ router }) => {
                 <li className="nav-link">
                   <Link href="#">
                     <a>
-                      About
+                      Company
                       <ArrowDown stroke="black" />
                     </a>
                   </Link>
                   <div className="dropdown">
                     <ul>
                       <li className="dropdown-link">
-                        <Link href="/about#information">
-                          <a>기업정보</a>
-                        </Link>
-                      </li>
-                      <li className="dropdown-link">
-                        <Link href="/about#greetings">
-                          <a>CEO 인사말</a>
-                        </Link>
-                      </li>
-                      <li className="dropdown-link">
-                        <Link href="/about#history">
-                          <a>연혁</a>
-                        </Link>
-                      </li>
-                      <li className="dropdown-link">
-                        <Link href="/about#address">
-                          <a>회사위치</a>
-                        </Link>
-                      </li>
-                      <li className="dropdown-link">
-                        <Link href="/about#partners">
-                          <a>협력사 현황</a>
+                        <Link href="/corporateidentity">
+                          <a>C I</a>
                         </Link>
                       </li>
                       <li className="dropdown-link">
                         <Link href="#">
                           <a>
-                            Multi Link
+                            About
                             <ArrowDown stroke="black" />
                           </a>
                         </Link>
                         <div className="dropdown second">
                           <ul>
                             <li className="dropdown-link">
-                              <Link href="#">
-                                <a>Link 1</a>
+                              <Link href="/about#information">
+                                <a>기업정보</a>
                               </Link>
                             </li>
                             <li className="dropdown-link">
-                              <Link href="#">
-                                <a>Link 2</a>
+                              <Link href="/about#greetings">
+                                <a>CEO 인사말</a>
                               </Link>
                             </li>
                             <li className="dropdown-link">
-                              <Link href="#">
-                                <a>Link 3</a>
+                              <Link href="/about#history">
+                                <a>연혁</a>
                               </Link>
                             </li>
                             <li className="dropdown-link">
-                              <Link href="#">
-                                <a>Link 4</a>
+                              <Link href="/about#address">
+                                <a>회사위치</a>
+                              </Link>
+                            </li>
+                            <li className="dropdown-link">
+                              <Link href="/about#partners">
+                                <a>협력사 현황</a>
                               </Link>
                             </li>
                             <div className="arrow"></div>
@@ -131,11 +116,6 @@ const Header: React.FC<HeaderProps> = ({ router }) => {
                 <li className="nav-link">
                   <Link href="/business">
                     <a>Business</a>
-                  </Link>
-                </li>
-                <li className="nav-link">
-                  <Link href="/corporateidentity">
-                    <a>CI</a>
                   </Link>
                 </li>
                 {/* <li className="nav-link">
