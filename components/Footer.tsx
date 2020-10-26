@@ -122,7 +122,7 @@ const Footer: React.FC = () => {
               </li>
               <li>
                 <Link href="/about#partners">
-                  <a>협력사 현황</a>
+                  <a>관계사 현황</a>
                 </Link>
               </li>
             </ul>

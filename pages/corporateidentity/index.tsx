@@ -38,6 +38,7 @@ const CI: React.FC = () => {
             <small>CI</small>
           </div>
           <div className="logo_bg_grid" data-aos="zoom-in-up"></div>
+
           <div className="content-container" data-aos="zoom-in-up">
             <span>세로형</span>
           </div>
@@ -56,9 +57,48 @@ const CI: React.FC = () => {
             <span>가로형</span>
           </div>
           <ImgWrapper data-aos="zoom-in-up">
-            <div className="logo_horisontal white" data-aos="zoom-in-up"></div>
-            <div className="logo_horisontal black" data-aos="zoom-in-up"></div>
+            <div className="logo-box">
+              <div
+                className="logo_horisontal white"
+                data-aos="zoom-in-up"></div>
+            </div>
+            <div className="logo-box">
+              <div
+                className="logo_horisontal black"
+                data-aos="zoom-in-up"></div>
+            </div>
           </ImgWrapper>
+
+          <div className="content-container" data-aos="zoom-in-up">
+            <span>영문</span>
+          </div>
+          <ImgWrapper data-aos="zoom-in-up">
+            <div className="logo-box">
+              <div className="logo_vertical eng"></div>
+            </div>
+            <div
+              className="logo-box"
+              style={{ display: "flex", alignItems: "center" }}>
+              <div className="logo_horisontal eng"></div>
+            </div>
+          </ImgWrapper>
+
+          <div className="content-container" data-aos="zoom-in-up">
+            <span>색상</span>
+          </div>
+          <div className="brand-colors" data-aos="zoom-in-up">
+            <div className="colors-container">
+              <div className="light-color">
+                <span>C 99 M 36 Y 0 K 30</span>
+              </div>
+              <div className="default-color">
+                <span>C 99 M 48 Y 0 K 41</span>
+              </div>
+              <div className="dark-color">
+                <span>C 95 M 60 Y 0 K 48</span>
+              </div>
+            </div>
+          </div>
         </div>
       </ContentWrapper>
     </Layout>
@@ -177,6 +217,45 @@ const ContentWrapper = styled.div`
         height: 25rem;
       }
     }
+
+    .brand-colors {
+      width: 100%;
+      margin: 0 auto;
+
+      .colors-container {
+        display: flex;
+        justify-content: space-between;
+        max-width: 40rem;
+        margin: 0 auto;
+
+        ${md} {
+          max-width: 100%;
+        }
+        > div {
+          position: relative;
+          width: 7rem;
+          height: 7rem;
+
+          span {
+            position: absolute;
+            bottom: 16px;
+            left: 8px;
+            color: white;
+            font-size: 0.5rem;
+          }
+
+          &.light-color {
+            background-color: #0172b2;
+          }
+          &.default-color {
+            background-color: #014f97;
+          }
+          &.dark-color {
+            background-color: #073686;
+          }
+        }
+      }
+    }
   }
 `;
 
@@ -212,10 +291,13 @@ const ImgWrapper = styled.div`
       background: url("/static/logo/logo_vertical_white_128.png") center
         no-repeat #252525;
     }
+    &.eng {
+      background: url("/static/logo/logo_vertical_eng_128.png") center no-repeat;
+    }
   }
 
   .logo_horisontal {
-    width: 30%;
+    width: 100%;
     height: 6rem;
     border: 1px solid rgba(0, 0, 0, 0.1);
     margin-top: 1.5rem;
@@ -230,6 +312,10 @@ const ImgWrapper = styled.div`
     &.black {
       background: url("/static/logo/logo_horizontal_white_328.png") center
         no-repeat #252525;
+    }
+    &.eng {
+      background: url("/static/logo/logo_horizontal_eng_328.png") center
+        no-repeat;
     }
   }
 `;

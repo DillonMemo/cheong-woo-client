@@ -102,7 +102,7 @@ const Header: React.FC<HeaderProps> = ({ router }) => {
                             </li>
                             <li className="dropdown-link">
                               <Link href="/about#partners">
-                                <a>협력사 현황</a>
+                                <a>관계사 현황</a>
                               </Link>
                             </li>
                             <div className="arrow"></div>
