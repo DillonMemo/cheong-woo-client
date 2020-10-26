@@ -177,6 +177,33 @@ export const MessageTitle = styled.h1`
   }
 `;
 
+export const MessageTitleWithUnderline = styled.h1`
+  font-size: 2.5rem;
+  font-weight: 500;
+  text-align: center;
+  ${lg} {
+    font-size: 2rem;
+  }
+
+  ${sm} {
+    font-size: 1.7rem;
+    font-weight: 500;
+  }
+
+  ${xxs} {
+    font-size: 1.3rem;
+  }
+
+  &:after {
+    content: "";
+    width: 100%;
+    height: 2px;
+    display: flex;
+    background-color: black;
+    margin-top: 0.8rem;
+  }
+`;
+
 export const MessageSubTitle = styled.p`
   font-size: 1.5rem;
 

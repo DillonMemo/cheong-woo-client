@@ -65,7 +65,7 @@ const Footer: React.FC = () => {
               </Link>
             </li> */}
             <li className="nav-item">
-              <Link href="#">
+              <Link href="/career">
                 <a>
                   <h2 className="nav-title">Career</h2>
                 </a>
