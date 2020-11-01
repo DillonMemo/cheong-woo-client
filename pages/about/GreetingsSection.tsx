@@ -22,18 +22,14 @@ const GreetingsSection = () => {
           <MessageTitle>CEO 인사말</MessageTitle>
           <MessageContent className="content">
             <Doublequotation>&ldquo;</Doublequotation>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae,
-            numquam! Asperiores magnam ipsum autem error molestiae, nisi
-            corporis officia expedita at dolorem facere consectetur dolorum odio
-            libero eius? Maiores odio, eos mollitia voluptatem, impedit
-            laboriosam, at aperiam illo maxime quos iste optio. Dolore
-            blanditiis debitis labore atque iure quam rerum ea! Commodi nulla
-            perspiciatis natus quo eligendi tempore possimus ducimus eaque nisi
-            voluptas! Quo itaque modi dolorem, quod voluptatum inventore
-            repellat voluptate sequi unde! Suscipit excepturi assumenda earum
-            cumque aperiam iure, tempore labore autem? Saepe facilis animi
-            tempore dolorem iusto molestiae quas, sunt magni eveniet repellendus
-            architecto aperiam nobis vitae.
+            안녕하십니까 청우종합건설 대표이사 입니다. <br /> 1999년 7월에
+            설립된 청우종합건설(주)는 고객만족과 품질관리를 기본으로 고객의
+            신뢰를 받는 기업으로서 지속 가능한 성장을 추구하고 있으며, 최고의
+            품질과 최선의 안전관리를 자부하고 있습니다. <br /> 아름다운 디자인은
+            물론 실생활에 필요한 기능적인 면과 안전에 관련된 부분에 대하여
+            최선의 노력을 기울이고 있습니다. <br /> 오랜기간 이끌어온만큼 더욱
+            신뢰있는 기업으로 탈바꿈해 나가겠습니다. <br /> <br />
+            청우종합건설 대표이사 배상
           </MessageContent>
         </div>
       </div>
@@ -96,11 +92,11 @@ const Doublequotation = styled.span`
   left: 20%;
 
   ${xxl} {
-    top: 15%;
+    top: 23%;
   }
 
   ${xl} {
-    top: 15%;
+    top: 17%;
   }
 
   ${lg} {
@@ -108,7 +104,7 @@ const Doublequotation = styled.span`
   }
 
   ${md} {
-    top: 12%;
+    top: 20%;
   }
 
   ${sm} {

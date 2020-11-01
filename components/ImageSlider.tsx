@@ -1,25 +1,26 @@
-import React, { useCallback, useEffect } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import styled from "styled-components";
 
 /** utils */
-import { ArrowLeft, ArrowRight } from "../utils/icons";
+import { ArrowLeft, ArrowRight, Pause, Play } from "../utils/icons";
 import { md } from "../utils/styles";
 
 const ImageSlider: React.FC = () => {
-  const autoSlide = true;
+  // const autoSlide = true;
   const intervalTime = 4000;
-  //   const [autoSlide, setAutoSlide] = useState<boolean>(true);
+  const [autoSlide, setAutoSlide] = useState<boolean>(false);
   //   const [intervalTime, setIntervalTime] = useState<number>(5000);
   let slideInterval: any = null;
 
   useEffect(() => {
+    debugger;
     if (autoSlide) {
       // Run next slide at interval time
       slideInterval = setInterval(nextSlide, intervalTime);
 
       return () => clearInterval(slideInterval);
     }
-  }, []);
+  }, [autoSlide]);
 
   const nextSlide = (): void => {
     const current = document.querySelector(".current");
@@ -146,7 +147,7 @@ const ImageSlider: React.FC = () => {
     <>
       <Wrapper>
         <div className="slide current">
-          <div className="content">
+          {/* <div className="content">
             <h1>Title One</h1>
             <small>건축</small>
             <p>
@@ -154,10 +155,10 @@ const ImageSlider: React.FC = () => {
               quam, autem quis corrupti et laboriosam voluptatibus! Ducimus,
               perspiciatis temporibus!
             </p>
-          </div>
+          </div> */}
         </div>
         <div className="slide">
-          <div className="content">
+          {/* <div className="content">
             <h1>Title Two</h1>
             <small>토목</small>
             <p>
@@ -165,10 +166,10 @@ const ImageSlider: React.FC = () => {
               distinctio illo, ducimus a maxime eligendi odit ipsa quo
               dignissimos.
             </p>
-          </div>
+          </div> */}
         </div>
         <div className="slide">
-          <div className="content">
+          {/* <div className="content">
             <h1>Title Three</h1>
             <small>주택</small>
             <p>
@@ -176,7 +177,7 @@ const ImageSlider: React.FC = () => {
               necessitatibus omnis unde dolore tempora similique! Ipsam eum quo
               laboriosam?
             </p>
-          </div>
+          </div> */}
         </div>
       </Wrapper>
       <SlideButtonWrapper>
@@ -195,6 +196,17 @@ const ImageSlider: React.FC = () => {
         <div className="dot" data-index={2} onClick={handleDotClick}></div>
         <div className="dot" data-index={3} onClick={handleDotClick}></div>
       </SlideDotWrapper>
+      <SlidePlayButtonWrapper>
+        {autoSlide ? (
+          <button onClick={() => setAutoSlide(!autoSlide)}>
+            <Pause width="3rem" height="3rem" strokeWidth={1} stroke="white" />
+          </button>
+        ) : (
+          <button onClick={() => setAutoSlide(!autoSlide)}>
+            <Play width="3rem" height="3rem" strokeWidth={1} stroke="white" />
+          </button>
+        )}
+      </SlidePlayButtonWrapper>
     </>
   );
 };
@@ -386,6 +398,23 @@ const SlideDotWrapper = styled.div`
         background-color: #000;
       }
     }
+  }
+`;
+
+const SlidePlayButtonWrapper = styled.div`
+  position: absolute;
+  bottom: 4rem;
+  right: 4rem;
+
+  button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  ${md} {
+    bottom: 0;
+    right: 0;
   }
 `;
 

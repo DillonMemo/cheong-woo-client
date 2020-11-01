@@ -194,3 +194,54 @@ export const Globe: React.FC<IconProps> = ({
     </g>
   </svg>
 );
+
+export const Pause: React.FC<IconProps> = ({
+  width = "1rem",
+  height = "1rem",
+  fill = "none",
+  stroke = "#626262",
+  strokeWidth = "2",
+}) => (
+  <svg
+    aria-hidden="true"
+    focusable="false"
+    width={width}
+    height={height}
+    preserveAspectRatio="xMidYMid meet"
+    viewBox="0 0 24 24">
+    <g
+      fill={fill}
+      stroke={stroke}
+      strokeWidth={strokeWidth}
+      strokeLinecap="round"
+      strokeLinejoin="round">
+      <path d="M6 4h4v16H6z" />
+      <path d="M14 4h4v16h-4z" />
+    </g>
+  </svg>
+);
+
+export const Play: React.FC<IconProps> = ({
+  width = "1rem",
+  height = "1rem",
+  fill = "none",
+  stroke = "#626262",
+  strokeWidth = "2",
+}) => (
+  <svg
+    aria-hidden="true"
+    focusable="false"
+    width={width}
+    height={height}
+    preserveAspectRatio="xMidYMid meet"
+    viewBox="0 0 24 24">
+    <g
+      fill={fill}
+      stroke={stroke}
+      strokeWidth={strokeWidth}
+      strokeLinecap="round"
+      strokeLinejoin="round">
+      <path d="M5 3l14 9l-14 9V3z" />
+    </g>
+  </svg>
+);
