@@ -10,12 +10,7 @@ const PartnersSection: React.FC = () => {
           <MessageTitle>관계사</MessageTitle>
         </div>
         <div className="contents">
-          <div
-            className="content"
-            style={{
-              background:
-                "url('/static/relationship_company_1.jpeg') no-repeat center/contain;",
-            }}></div>
+          <div className="content company-1" />
         </div>
       </div>
     </ContentWrapper>
@@ -59,6 +54,11 @@ const ContentWrapper = styled.section`
         height: 5rem;
         opacity: 1;
         overflow: hidden;
+
+        &.company-1 {
+          background: url("/static/relationship_company_1.jpeg") no-repeat
+            center/contain;
+        }
       }
     }
   }
