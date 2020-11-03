@@ -13,7 +13,6 @@ const ImageSlider: React.FC = () => {
   let slideInterval: any = null;
 
   useEffect(() => {
-    debugger;
     if (autoSlide) {
       // Run next slide at interval time
       slideInterval = setInterval(nextSlide, intervalTime);
