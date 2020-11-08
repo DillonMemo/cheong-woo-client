@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useRef } from "react";
 import Link from "next/link";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 /** styles */
 import { brandColor, defaultPalette, lg, md } from "../utils/styles";
@@ -33,7 +33,6 @@ const Header: React.FC<HeaderProps> = ({ router }) => {
     <>
       <HeaderWrapper ref={header} router={router}>
         <div className="container">
-          <input type="checkbox" name="" id="check" />
           <div className="logo-container">
             <Link href="/">
               <a>
@@ -49,6 +48,17 @@ const Header: React.FC<HeaderProps> = ({ router }) => {
               </a>
             </Link>
           </div>
+
+          <input
+            type="checkbox"
+            name="menu-btn"
+            id="menu-btn"
+            className="menu-btn"
+          />
+          <label htmlFor="menu-btn" className="menu-icon">
+            <span className="menu-icon-line"></span>
+          </label>
+
           <div className="nav-btn">
             <div className="nav-links">
               <ul>
@@ -139,19 +149,68 @@ const Header: React.FC<HeaderProps> = ({ router }) => {
               </a>
             </div> */}
           </div>
-          <Hamburger className="hamburger-menu-container">
-            <div className="hamburger-menu">
-              <div></div>
-            </div>
-          </Hamburger>
         </div>
       </HeaderWrapper>
     </>
   );
 };
 
+/* styled components */
+
 const headerHeight = "4rem";
-const hamburgerSize = "2.5rem";
+
+const pulse = keyframes`
+  from {
+    box-shadow: 0 0 0 0px rgba(255,255,255, .6);
+    background: rgba(255,255,255,.6);
+  }
+  to {
+    box-shadow: 0 0 0 1000px rgba(255,255,255, 0);
+    background: rgba(255,255,255,0);
+  }
+`;
+
+const Mid = keyframes`
+  50% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(45deg);
+  }
+`;
+const Top = keyframes`
+  0% {
+    transform: translateY(-5px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(90deg);
+  }
+`;
+const Bottom = keyframes`
+  0% {
+    transform: translateY(5px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(90deg);
+  }
+`;
+
+const animation = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
 
 const HeaderWrapper = styled.header<HeaderWrapperProps>`
   position: fixed;
@@ -548,6 +607,112 @@ const HeaderWrapper = styled.header<HeaderWrapperProps>`
         }
       }
     }
+
+    .menu-icon {
+      position: relative;
+      cursor: pointer;
+      z-index: 1;
+      width: 2.5rem;
+      height: 100%;
+      display: none;
+
+      ${md} {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .menu-icon-line {
+        display: block;
+        position: relative;
+        background-color: #000;
+        height: 3px;
+        width: 1.6rem;
+        border-radius: 4px;
+
+        &::before,
+        &::after {
+          content: "";
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          border-radius: 4px;
+          background-color: #000;
+          transition: background 0.8s ease;
+        }
+
+        &::before {
+          transform: translateY(-7px);
+        }
+        &::after {
+          transform: translateY(7px);
+        }
+      }
+    }
+
+    .menu-btn {
+      position: absolute;
+      top: -100px;
+
+      &:focus ~ .menu-icon {
+        .menu-icon-line {
+          &::before {
+            transform: translateY(-7px);
+          }
+          &::after {
+            transform: translateY(7px);
+          }
+        }
+      }
+
+      &:checked ~ .menu-icon {
+        border-radius: 50%;
+        animation: ${pulse} 1s;
+        .menu-icon-line {
+          background-color: #014f97;
+          animation: ${Mid} 0.8s forwards;
+
+          &::before {
+            background-color: #014f97;
+            animation: ${Top} 0.8s forwards;
+          }
+          &::after {
+            background-color: #014f97;
+            animation: ${Bottom} 0.8s forwards;
+          }
+        }
+      }
+
+      &:checked ~ .nav-btn {
+        transform: translateX(0);
+      }
+
+      &:checked ~ .nav-btn .nav-link,
+      &:checked ~ .nav-btn .log-sign {
+        clip-path: circle(100% at center);
+        animation: ${animation} 0.4s ease forwards;
+      }
+      &:checked ~ .nav-btn .nav-link {
+        &:nth-of-type(1) {
+          animation-delay: 0.5s;
+        }
+        &:nth-of-type(2) {
+          animation-delay: 0.65s;
+        }
+        &:nth-of-type(3) {
+          animation-delay: 0.8s;
+        }
+        &:nth-of-type(4) {
+          animation-delay: 0.95s;
+        }
+        &:nth-of-type(5) {
+          animation-delay: 1.1s;
+        }
+      }
+      &:checked ~ .nav-btn .log-sign {
+        animation-delay: 1.35s;
+      }
+    }
   }
   /* 스크롤 모드 */
   &.scrolled {
@@ -600,113 +765,12 @@ const HeaderWrapper = styled.header<HeaderWrapperProps>`
           }
         }
       }
-    }
-  }
 
-  #check {
-    position: absolute;
-    top: 50%;
-    right: 0;
-    transform: translateY(-50%);
-    width: ${hamburgerSize};
-    height: ${hamburgerSize};
-    z-index: 9;
-    cursor: pointer;
-    opacity: 0;
-    display: none;
-    ${md} {
-      display: block;
-    }
-  }
-  #check:checked ~ .hamburger-menu-container .hamburger-menu div {
-    background-color: transparent;
-  }
-  #check:checked ~ .hamburger-menu-container .hamburger-menu div::before {
-    transform: translateY(0) rotate(-45deg);
-  }
-  #check:checked ~ .hamburger-menu-container .hamburger-menu div::after {
-    transform: translateY(0) rotate(45deg);
-  }
-  #check:checked ~ .nav-btn {
-    transform: translateX(0);
-  }
-  #check:checked ~ .nav-btn .nav-link,
-  #check:checked ~ .nav-btn .log-sign {
-    animation: animation 0.4s ease forwards;
-  }
-
-  #check:checked ~ .nav-btn .nav-link {
-    &:nth-of-type(1) {
-      animation-delay: 0.5s;
-    }
-    &:nth-of-type(2) {
-      animation-delay: 0.65s;
-    }
-    &:nth-of-type(3) {
-      animation-delay: 0.8s;
-    }
-    &:nth-of-type(4) {
-      animation-delay: 0.95s;
-    }
-    &:nth-of-type(5) {
-      animation-delay: 1.1s;
-    }
-  }
-  #check:checked ~ .nav-btn .log-sign {
-    animation-delay: 1.35s;
-  }
-
-  @keyframes animation {
-    from {
-      opacity: 0;
-      transform: translateY(15px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-`;
-
-const Hamburger = styled.div`
-  ${md} {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-
-    .hamburger-menu {
-      width: ${hamburgerSize};
-      height: ${hamburgerSize};
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      div {
-        width: 1.6rem;
-        height: 3px;
-        border-radius: 3px;
-        background-color: #000;
-        position: relative;
-        z-index: 1;
-        transition: 0.5s;
-
-        &::before,
-        &::after {
-          content: "";
-          position: absolute;
-          width: inherit;
-          height: inherit;
+      .menu-icon {
+        .menu-icon-line,
+        .menu-icon-line::before,
+        .menu-icon-line::after {
           background-color: #000;
-          border-radius: 3px;
-        }
-
-        &::before {
-          transform: translateY(-7px);
-        }
-
-        &::after {
-          transform: translateY(7px);
         }
       }
     }
