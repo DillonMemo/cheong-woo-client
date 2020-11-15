@@ -178,6 +178,7 @@ export const MessageTitle = styled.h1`
 `;
 
 export const MessageTitleWithUnderline = styled.h1`
+  display: inline-block;
   font-size: 2.5rem;
   font-weight: 500;
   text-align: center;
