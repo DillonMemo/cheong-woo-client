@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import styled from "styled-components";
 import AOS from "aos";
 
 /** components */
@@ -21,15 +22,15 @@ const Career: React.FC = () => {
 
   return (
     <Layout {...attributeLayout}>
-      {/* <FirstWrapper className="title-content">
+      <FirstWrapper className="title-content">
         <Title>
           <p>Home &gt; Career</p>
           <span>Career</span>
         </Title>
-        <div style={{ position: "absolute", top: "47.5%", left: "47.5%" }}>
+        {/* <div style={{ position: "absolute", top: "47.5%", left: "47.5%" }}>
           <Image width="4rem" height="4rem" stroke="black" strokeWidth={1} />
-        </div>
-      </FirstWrapper> */}
+        </div> */}
+      </FirstWrapper>
       <div className="container">
         <HumanResource />
         <Welfare />
@@ -40,26 +41,27 @@ const Career: React.FC = () => {
   );
 };
 
-// const FirstWrapper = styled.div`
-//   /* background-image: url("https://images.unsplash.com/photo-1482148454461-aaedae4b30bb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80"); */
-//   height: 60vh;
-//   background-color: rgba(112, 112, 112, 1);
-//   /* Create the parallax scrolling effect */
-//   background-attachment: fixed;
-//   background-position: center 90%;
-//   background-repeat: no-repeat;
-// `;
+const FirstWrapper = styled.div`
+  background-image: url("/static/career.jpg");
+  height: 60vh;
+  /* background-color: rgba(112, 112, 112, 1); */
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center 90%;
+  background-repeat: no-repeat;
+  background-size: cover;
+`;
 
-// const Title = styled.div`
-//   margin: 2rem 0;
+const Title = styled.div`
+  margin: 2rem 0;
 
-//   p {
-//     font-size: 1rem !important;
-//   }
+  p {
+    font-size: 1rem !important;
+  }
 
-//   span {
-//     font-size: 3.5rem;
-//   }
-// `;
+  span {
+    font-size: 3.5rem;
+  }
+`;
 
 export default Career;

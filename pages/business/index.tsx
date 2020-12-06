@@ -5,7 +5,7 @@ import styled from "styled-components";
 import Layout from "../../components/Layout";
 
 /** utils */
-import { FilterType, imgs, ImgType } from "../../utils/sample-data";
+import { FilterType, imgs, ImgType } from "../../utils/business-data";
 import { brandColor, xs } from "../../utils/styles";
 
 const attributeLayout = {
@@ -17,11 +17,11 @@ const attributeLayout = {
 const Business: React.FC = () => {
   const [filters, setFilters] = useState<FilterType[]>([
     { name: "all", status: true },
-    { name: "filter 1", status: false },
-    { name: "filter 2", status: false },
-    { name: "filter 3", status: false },
-    { name: "filter 4", status: false },
-    { name: "filter 5", status: false },
+    { name: "건축", status: false },
+    { name: "시설물", status: false },
+    { name: "주택", status: false },
+    { name: "토목", status: false },
+    { name: "진행중", status: false },
   ]);
   const [images, setImages] = useState<ImgType[]>(imgs);
 
@@ -116,12 +116,8 @@ const Business: React.FC = () => {
           <div key={`item-${index}`} className="grid-item">
             <ImgContent className="img" img_url={img.url} />
             <div className="details">
-              <span>{img.title}</span>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Dolores quia maiores fugiat eaque! Laborum, aliquam quaerat.
-                Similique magni pariatur dolorum!
-              </p>
+              <h3>{img.title}</h3>
+              {img.content && img.content}
             </div>
           </div>
         ))}
@@ -234,7 +230,7 @@ const GridContainer = styled.div`
       padding: 5% 8%;
       display: flex;
       flex-flow: column wrap;
-      justify-content: space-around;
+      justify-content: space-evenly;
       /* transform: translate(-50%, -50%) rotateY(90deg); */
       transform: translateY(50%);
       transform-origin: 50%;

@@ -12,7 +12,7 @@ import { SayHelloData, SayHelloVars } from "../interfaces";
 import { brandColor } from "../utils/styles";
 
 /** utils */
-import { imgs, ImgType } from "../utils/sample-data";
+import { imgs, ImgType } from "../utils/business-data";
 
 const [title] = ["청우종합건설"];
 

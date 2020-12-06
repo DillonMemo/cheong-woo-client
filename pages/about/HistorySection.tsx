@@ -11,40 +11,45 @@ import { historyListType } from "../../interfaces";
 
 const historyList: historyListType = [
   {
-    year: "2017년",
+    year: "1999년",
+    contents: ["07월 - 청우종합건설 법인 설립"],
+  },
+  {
+    year: "2000년",
+    contents: ["09월 - 자본금 증자", "10월 - 주택건설업 면허취득"],
+  },
+  {
+    year: "2005년",
     contents: [
-      "O월 - 청우종합건설 법인 설립",
-      "O월 - Lorem ipsum dolor sit amet.",
-      "O월 - Lorem ipsum dolor sit amet.",
-      "O월 - Lorem ipsum dolor sit amet.",
+      "05월 - 자본금 증자",
+      "05월 - 본사이전",
+      "06월 - 건축공사업 면허취득",
+      "07월 - 자본금 증자",
     ],
   },
   {
-    year: "2018년",
+    year: "2006년",
+    contents: ["06월 - 토목건축공사업 면허 취득"],
+  },
+  {
+    year: "2011년",
+    contents: ["07월 - 해외건설업 신고필증 취득"],
+  },
+  {
+    year: "2013년",
     contents: [
-      "O월 - Lorem ipsum dolor sit amet.",
-      "O월 - Lorem ipsum dolor sit amet.",
-      "O월 - Lorem ipsum dolor sit amet.",
-      "O월 - Lorem ipsum dolor sit amet.",
+      "04월 - 본사이전",
+      "04월 - 아산건설(주)에서 청우종합건설(주)로 상호변경",
+      "12월 - 신현리 청우엘로이 다세대 신축공사",
     ],
   },
   {
     year: "2019년",
-    contents: [
-      "O월 - Lorem ipsum dolor sit amet.",
-      "O월 - Lorem ipsum dolor sit amet.",
-      "O월 - Lorem ipsum dolor sit amet.",
-      "O월 - Lorem ipsum dolor sit amet.",
-    ],
+    contents: ["08월 - 고양 향동 청우프라자 신축공사"],
   },
   {
     year: "2020년",
-    contents: [
-      "O월 - Lorem ipsum dolor sit amet.",
-      "O월 - Lorem ipsum dolor sit amet.",
-      "O월 - Lorem ipsum dolor sit amet.",
-      "O월 - Lorem ipsum dolor sit amet.",
-    ],
+    contents: ["06월 - 의왕 갈미어린이공원 지하공영주차장 신축공사"],
   },
 ];
 
@@ -109,14 +114,30 @@ const HistorySection: React.FC = () => {
         recordNavs[i].classList.add("selected");
       }
 
+      debugger;
+
+      // if (index === 0) {
+      //   navBarSelected.style.width = `calc(${
+      //     (100 / (recordNavs.length + 1)) * (index + 1)
+      //   }% - 10px)`;
+      // } else if (index > 2) {
+      //   navBarSelected.style.width = `calc(${
+      //     (100 / (recordNavs.length + 1)) * (index + 1)
+      //   }% + ${index}%)`;
+      // } else {
+      //   navBarSelected.style.width = `calc(${
+      //     (100 / (recordNavs.length + 1)) * (index + 1)
+      //   }%)`;
+      // }
+
       if (index === 0) {
         navBarSelected.style.width = `calc(${
           (100 / (recordNavs.length + 1)) * (index + 1)
         }% - 10px)`;
-      } else if (index > 2) {
+      } else if (recordNavs.length === index + 1) {
         navBarSelected.style.width = `calc(${
           (100 / (recordNavs.length + 1)) * (index + 1)
-        }% + ${index}%)`;
+        }% + 10px)`;
       } else {
         navBarSelected.style.width = `calc(${
           (100 / (recordNavs.length + 1)) * (index + 1)
@@ -249,6 +270,7 @@ const ContentWrapper = styled.section`
 
             ${md} {
               font-size: initial;
+              text-align: center;
             }
           }
 

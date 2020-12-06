@@ -1,11 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 /** styles */
 import { defaultPalette, md } from "../utils/styles";
 
 const Footer: React.FC = () => {
+  const router = useRouter();
   return (
     <>
       <FooterWrapper>
@@ -76,8 +78,9 @@ const Footer: React.FC = () => {
             <p>&copy; 2020 Cheong woo Inc. All rights reserved.</p>
             <div className="legal-links">
               <ul className="links">
-                <li>개인정보 보호정책</li>
-                <li>서비스 이용약관</li>
+                <li onClick={() => router.push("/policy/privacy")}>
+                  개인정보 보호정책
+                </li>
                 <li style={{ fontSize: ".65rem" }}>
                   🧑‍💻 be made by Dillon Jang{" "}
                 </li>
@@ -365,6 +368,7 @@ const FooterWrapper = styled.footer`
         font-weight: 300;
 
         li {
+          cursor: pointer;
           position: relative;
           display: inline-block;
           margin-left: 1.5rem;
