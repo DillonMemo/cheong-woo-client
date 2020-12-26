@@ -10,8 +10,8 @@ import AddressSection from "./AddressSection";
 import PartnersSection from "./PartnersSection";
 
 const attributeLayout = {
-  title: "청우종합건설",
-  description: "That's site is development mode - cheongwoo",
+  title: "청우종합건설 | About",
+  description: "Cheong Woo | About",
   imageUrl: "http://placehold.it/600x400",
 };
 

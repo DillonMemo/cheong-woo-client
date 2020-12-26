@@ -9,8 +9,8 @@ import { FilterType, imgs, ImgType } from "../../utils/business-data";
 import { brandColor, xs } from "../../utils/styles";
 
 const attributeLayout = {
-  title: "청우종합건설",
-  description: "That's site is development mode - cheongwoo",
+  title: "청우종합건설 | Business",
+  description: "Cheong Woo | Business",
   imageUrl: "http://placehold.it/600x400",
 };
 

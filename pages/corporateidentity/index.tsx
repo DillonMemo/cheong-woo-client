@@ -9,8 +9,8 @@ import Layout from "../../components/Layout";
 import { defaultPalette, md } from "../../utils/styles";
 
 const attributeLayout = {
-  title: "청우종합건설",
-  description: "That's site is development mode - cheongwoo",
+  title: "청우종합건설 | CI",
+  description: "Cheong Woo | CI",
   imageUrl: "http://placehold.it/600x400",
 };
 

@@ -6,7 +6,7 @@ import ImageSlider from "../components/ImageSlider";
 
 const attributeLayout = {
   title: "청우종합건설",
-  description: "That's site is development mode - cheongwoo",
+  description: "Cheong Woo",
   imageUrl: "../static/main_3",
 };
 
