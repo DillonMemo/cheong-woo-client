@@ -4,7 +4,7 @@
   "scripts": {
     "test": "cross-env NODE_ENV=development PORT=3000 node server.js",
     "dev": "cross-env NODE_ENV=development PORT=3000 next dev",
-    "build": "next build",
+    "build": "sh script/generate-sitemap.sh && next build",
     "start": "next start"
   },
   "dependencies": {
