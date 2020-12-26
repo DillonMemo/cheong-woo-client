@@ -6,27 +6,27 @@ import AOS from "aos";
 import { MessageTitleWithUnderline } from "../../components/Layout";
 import { brandColor, defaultPalette } from "../../utils/styles";
 
-const Recruit: React.FC = () => {
+const Cooperative: React.FC = () => {
   useEffect(() => {
     AOS.init({ duration: 1200 });
   }, []);
 
   return (
-    <ContentWrapper id="recruit">
+    <ContentWrapper id="cooperative">
       <div className="wrapper">
         <div className="title-container" data-aos="zoom-in-up">
-          <MessageTitleWithUnderline>채용공고</MessageTitleWithUnderline>
+          <MessageTitleWithUnderline>협력사</MessageTitleWithUnderline>
         </div>
         <div className="container" data-aos="zoom-in-up">
           <button
-            className="recruit-btn"
+            className="cooperative-btn"
             onClick={() =>
               window.open(
-                "http://m.jobkorea.co.kr/Recruit/GI_Read/33009006?view_type=01",
+                "http://www.cak.or.kr/comm/commsub01View.do?menuId=138&dataId=30360",
                 "_blank"
               )
             }>
-            체용공고 바로가기
+            협력사 지원 바로가기
           </button>
         </div>
       </div>
@@ -35,6 +35,7 @@ const Recruit: React.FC = () => {
 };
 
 const ContentWrapper = styled.section`
+  background-color: #f8f8f9;
   .wrapper {
     width: 100%;
     max-width: 100rem;
@@ -53,7 +54,7 @@ const ContentWrapper = styled.section`
       align-items: center;
       color: ${defaultPalette.accent2};
 
-      .recruit-btn {
+      .cooperative-btn {
         border: none;
         outline: none;
         cursor: pointer;
@@ -72,4 +73,4 @@ const ContentWrapper = styled.section`
   }
 `;
 
-export default Recruit;
+export default Cooperative;

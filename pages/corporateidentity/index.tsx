@@ -6,7 +6,6 @@ import AOS from "aos";
 import Layout from "../../components/Layout";
 
 /** styles */
-import { Image } from "../../utils/icons";
 import { defaultPalette, md } from "../../utils/styles";
 
 const attributeLayout = {
@@ -22,7 +21,7 @@ const CI: React.FC = () => {
 
   return (
     <Layout {...attributeLayout}>
-      <FirstWrapper className="title-content">
+      {/* <FirstWrapper className="title-content">
         <Title>
           <p>Home &gt; Corporate Identity</p>
           <span>CI</span>
@@ -30,7 +29,7 @@ const CI: React.FC = () => {
         <div style={{ position: "absolute", top: "47.5%", left: "47.5%" }}>
           <Image width="4rem" height="4rem" stroke="black" strokeWidth={1} />
         </div>
-      </FirstWrapper>
+      </FirstWrapper> */}
       <ContentWrapper>
         <div className="wrapper">
           <div className="title-container" data-aos="zoom-in-up">
@@ -105,27 +104,27 @@ const CI: React.FC = () => {
   );
 };
 
-const FirstWrapper = styled.div`
-  /* background-image: url("https://images.unsplash.com/photo-1482148454461-aaedae4b30bb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80"); */
-  height: 60vh;
-  background-color: rgba(112, 112, 112, 1);
-  /* Create the parallax scrolling effect */
-  background-attachment: fixed;
-  background-position: center 90%;
-  background-repeat: no-repeat;
-`;
+// const FirstWrapper = styled.div`
+//   /* background-image: url("https://images.unsplash.com/photo-1482148454461-aaedae4b30bb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80"); */
+//   height: 60vh;
+//   background-color: rgba(112, 112, 112, 1);
+//   /* Create the parallax scrolling effect */
+//   background-attachment: fixed;
+//   background-position: center 90%;
+//   background-repeat: no-repeat;
+// `;
 
-const Title = styled.div`
-  margin: 2rem 0;
+// const Title = styled.div`
+//   margin: 2rem 0;
 
-  p {
-    font-size: 1rem !important;
-  }
+//   p {
+//     font-size: 1rem !important;
+//   }
 
-  span {
-    font-size: 3.5rem;
-  }
-`;
+//   span {
+//     font-size: 3.5rem;
+//   }
+// `;
 
 const ContentWrapper = styled.div`
   .wrapper {

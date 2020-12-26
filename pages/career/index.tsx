@@ -8,6 +8,7 @@ import HumanResource from "./HumanResource";
 import Welfare from "./Welfare";
 import Organization from "./Organization";
 import Recruit from "./Recruit";
+import Cooperative from "./Cooperative";
 
 const attributeLayout = {
   title: "청우종합건설",
@@ -36,6 +37,7 @@ const Career: React.FC = () => {
         <Welfare />
         <Organization />
         <Recruit />
+        <Cooperative />
       </div>
     </Layout>
   );
